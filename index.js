@@ -34,9 +34,7 @@ var server = http.createServer(function(req, res){
           });
           req.on('end', function () {
             console.log("Body: " + body);
-          res.writeHead(200, {'Content-Type': 'text/html','Content-Length':body.length});
-          res.write(body);
-          res.end();
+          show(req, res, body)
           });
           break;
           default:
@@ -54,3 +52,25 @@ var server = http.createServer(function(req, res){
       });
       console.log('Hello, Nodejs Server listening on 3000');
       server.listen(3000);
+
+
+      function show(req, res, body) {
+      var html = ''
+      + '<html>'
+      + '<head>'
+      + '<meta charset="UTF-8">'
+      + '<title>How to GET and POST</title>'
+      + '<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">'
+      + '</head>'
+      + '<body>'
+      + '<div class="container">'
+      + '<h1>'
+      + body
+      + '</h1>'
+      + '</div>'
+      + '</body>'
+      + '</html>';
+      res.setHeader('Content-Type', 'text/html');
+      res.setHeader('Content-Length', Buffer.byteLength(html));
+      res.end(html);
+      }

@@ -27,10 +27,10 @@ $ node index.js
 ```
 Run client or going to http://localhost:3000, different get and post requests
 ```sh
-$ curl http://localhost:3000
-$ curl http://localhost:3000/index.html
-$ curl -d 'this a post request' http://localhost:3000
-$ curl -d 'this a post request' http://localhost:3000/index.html
+$ curl http://localhost:3000 -i
+$ curl http://localhost:3000/index.html -i
+$ curl -d 'this a post request' http://localhost:3000 -i
+$ curl -d 'this a post request' http://localhost:3000/index.html -i
 ```
 
 License
